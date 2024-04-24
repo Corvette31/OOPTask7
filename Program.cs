@@ -119,10 +119,10 @@
         {
             double deltaLatitude = ConvertToRadians(latitude2 - latitude1);
             double deltaLongitude = ConvertToRadians(longitude2 - longitude1);
-            double a = Math.Sin(deltaLatitude / 2) * Math.Sin(deltaLatitude / 2) +
+            double formulaPart1 = Math.Sin(deltaLatitude / 2) * Math.Sin(deltaLatitude / 2) +
             Math.Sin(deltaLongitude / 2) * Math.Sin(deltaLongitude / 2) * Math.Cos(ConvertToRadians(latitude1)) * Math.Cos(ConvertToRadians(latitude2));
-            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
-            return earthRadius * c;
+            double formulaPart2 = 2 * Math.Atan2(Math.Sqrt(formulaPart1), Math.Sqrt(1 - formulaPart1));
+            return earthRadius * formulaPart2;
         }
     }
 
